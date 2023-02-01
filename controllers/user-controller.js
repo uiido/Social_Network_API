@@ -1,82 +1,82 @@
 const { User, Thought } = require("../models");
 
 module.exports = {
-    // getUsers
     getUsers(req, res) {
         User.find()
-        // 
-    }
-    .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-},
+            .then((dbUserData) => {
+                res.json(dbUserData);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
 
-    // getSingleUser
     getSingleUser(req, res) {
-    User.findOne()
-    // 
-}
-    .catch ((err) => {
-    console.log(err);
-    res.status(500).json(err);
-});
-},
+        User.findOne()
+            .then((dbUserData) => {
+                res.json(dbUserData);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
 
-// createUser
-createUsers(req, res) {
-    User.create()
-    // 
-}
-    .catch ((err) => {
-    console.log(err);
-    res.status(500).json(err);
-});
-},
+    createUsers(req, res) {
+        User.create()
+            .then((dbUserData) => {
+                res.json(dbUserData);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
 
-// deleteUser
-deleteUsers(req, res) {
-    User.findOneAndDelete()
-    // 
-}
-    .catch ((err) => {
-    console.log(err);
-    res.status(500).json(err);
-});
-},
+    deleteUsers(req, res) {
+        User.findOneAndDelete()
+            .then((dbUserData) => {
+                res.json(dbUserData);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
 
-// updateUser
-updateUsers(req, res) {
-    User.findOneAndUpdate()
-    // 
-}
-    .catch ((err) => {
-    console.log(err);
-    res.status(500).json(err);
-});
-},
+    updateUsers(req, res) {
+        User.findOneAndUpdate()
+            .then((dbUserData) => {
+                res.json(dbUserData);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
 
-// addFriend
-addFriend(req, res) {
-    User.findOneAndUpdate()
-    // 
-}
-    .catch ((err) => {
-    console.log(err);
-    res.status(500).json(err);
-});
-},
+    addFriend(req, res) {
+        User.findOneAndUpdate()
+            .then((dbUserData) => {
+                res.json(dbUserData);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
 
-// removeFriend
-removeFriend(req, res) {
-    User.findOneAndUpdate()
-    // 
-}
-    .catch ((err) => {
-    console.log(err);
-    res.status(500).json(err);
-});
-},
-
+    removeFriend(req, res) {
+        User.findOneAndUpdate()
+            .then((dbUserData) => {
+                res.json(dbUserData);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
+};
 
 module.exports = userController;
