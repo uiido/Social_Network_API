@@ -1,3 +1,6 @@
-// const MODEL = require('./MODEL');
+const router = require('express').Router();
+const User = require('./user');
+const Thought = require('./thought');
 
-// module.exports = { MODEL };
+module.exports = { User };
+module.exports = { Thought };

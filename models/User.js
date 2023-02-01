@@ -17,14 +17,14 @@ const userSchema = new Schema(
                 "Please use a valid email.",
             ],
         },
-        thoughts: {
+        thoughts: [{
             type: Schema.Types.ObjectId,
             ref: "Thought",
-        },
-        friends: {
+        }],
+        friends: [{
             type: Schema.Types.ObjectId,
             ref: "User",
-        },
+        }],
     },
     {
         toJSON: {
