@@ -19,4 +19,4 @@ This website uses technolgies such as nodemon, express, and mongoose.
 [VideoDemo](https://youtu.be/3BrFelvw1Cs)
 
 ## Visuals
-![VideoDemo](/assets/Video-Demo.gif)
+![VideoDemo](./assets/Video-Demo.gif)
