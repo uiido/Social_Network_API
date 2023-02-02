@@ -1,7 +1,7 @@
 const { User, Thought } = require("../models");
 
 const thoughtController = {
-    getThoughts(req, res) {
+    getThought(req, res) {
         Thought.find()
             .then((dbThoughtData) => {
                 res.json(dbThoughtData);
@@ -67,7 +67,7 @@ const thoughtController = {
             });
     },
 
-    removeReactions(req, res) {
+    removeReaction(req, res) {
         Thought.findOneAndUpdate()
             .then((dbThoughtData) => {
                 res.json(dbThoughtData);
