@@ -1,6 +1,6 @@
 const { User, Thought } = require("../models");
 
-module.exports = {
+const thoughtController = {
     getThoughts(req, res) {
         Thought.find()
             .then((dbThoughtData) => {
