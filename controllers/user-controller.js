@@ -1,8 +1,9 @@
 const { User, Thought } = require("../models");
 
 module.exports = {
+    // Users
     getUsers(req, res) {
-        User.find({})
+        User.find()
             .then((dbUserData) => {
                 res.json(dbUserData);
             })
@@ -13,8 +14,11 @@ module.exports = {
     },
 
     getSingleUser(req, res) {
-        User.findOne()
+        User.findOne({ _id: req.params.userID })
             .then((dbUserData) => {
+                if (!dbUserData) {
+                    return res.status(404).json({ message: "Sorry, no user found with this ID!" });
+                }
                 res.json(dbUserData);
             })
             .catch((err) => {
@@ -24,7 +28,7 @@ module.exports = {
     },
 
     createUsers(req, res) {
-        User.create()
+        User.create(req.body)
             .then((dbUserData) => {
                 res.json(dbUserData);
             })
@@ -35,8 +39,11 @@ module.exports = {
     },
 
     deleteUsers(req, res) {
-        User.findOneAndDelete()
+        User.findOneAndDelete({ _id: req.params.userId })
             .then((dbUserData) => {
+                if (!dbUserData) {
+                    return res.status(404).json({ message: "Sorry, no user found with this ID!" });
+                }
                 res.json(dbUserData);
             })
             .catch((err) => {
@@ -46,8 +53,11 @@ module.exports = {
     },
 
     updateUsers(req, res) {
-        User.findOneAndUpdate()
+        User.findOneAndUpdate({ _id: req.params.userId })
             .then((dbUserData) => {
+                if (!dbUserData) {
+                    return res.status(404).json({ message: "Sorry, no user found with this ID!" });
+                }
                 res.json(dbUserData);
             })
             .catch((err) => {
@@ -56,9 +66,13 @@ module.exports = {
             });
     },
 
+    // Friends
     addFriend(req, res) {
-        User.findOneAndUpdate()
+        User.findOneAndUpdate({ _id: req.params.userId })
             .then((dbUserData) => {
+                if (!dbUserData) {
+                    return res.status(404).json({ message: "Sorry, no user found with this ID!" });
+                }
                 res.json(dbUserData);
             })
             .catch((err) => {
@@ -68,8 +82,11 @@ module.exports = {
     },
 
     removeFriend(req, res) {
-        User.findOneAndUpdate()
+        User.findOneAndUpdate({ _id: req.params.userId })
             .then((dbUserData) => {
+                if (!dbUserData) {
+                    return res.status(404).json({ message: "Sorry, no user found with this ID!" });
+                }
                 res.json(dbUserData);
             })
             .catch((err) => {
