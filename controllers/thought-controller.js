@@ -93,13 +93,10 @@ const thoughtController = {
         )
             .then((thought) =>
                 !thought
-                    ? res.status(404).json({ message: "Sorry, no thought with that ID found!" })
+                    ? res.status(404).json({ message: "No thought frind with ID!" })
                     : res.json(thought)
             )
-            .catch((err) => {
-                console.log(err);
-                res.status(500).json(err);
-            });
+            .catch((err) => res.status(500).json(err));
     },
 
     removeReaction(req, res) {
@@ -110,13 +107,10 @@ const thoughtController = {
         )
             .then((thought) =>
                 !thought
-                    ? res.status(404).json({ message: "Sorry, no thought with that ID found!" })
+                    ? res.status(404).json({ message: "No thought find with this ID!" })
                     : res.json(thought)
             )
-            .catch((err) => {
-                console.log(err);
-                res.status(500).json(err);
-            });
+            .catch((err) => res.status(500).json(err));
     },
 };
 
