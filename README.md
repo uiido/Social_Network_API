@@ -16,7 +16,7 @@ This website uses technolgies such as nodemon, express, and mongoose.
 ## Link
 [Repo](https://github.com/uiido/Social_Network_API)
 
-[VideoDemo]()
+[VideoDemo](https://youtu.be/3BrFelvw1Cs)
 
 ## Visuals
-![VideoDemo](./assets/video-demo.gif)
+![VideoDemo](./assets/Video-Demo.gif)
