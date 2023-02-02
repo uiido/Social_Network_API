@@ -4,7 +4,6 @@ const userController = {
     // Users
     getUsers(req, res) {
         User.find()
-            .select("__v")
             .then((dbUserData) => {
                 res.json(dbUserData);
             })
