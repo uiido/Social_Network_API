@@ -6,9 +6,7 @@
     "license": "MIT",
     "scripts": {
         "start": "node server",
-        "dev": "nodemon server",
-        "seed": "node utils/seed",
-        "heroku-postbuild": "node utils/seed.js"
+        "dev": "nodemon server"
     },
     "dependencies": {
         "express": "^4.17.1",

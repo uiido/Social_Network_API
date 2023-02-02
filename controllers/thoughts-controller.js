@@ -36,7 +36,7 @@ const thoughtController = {
             })
             .then((thought) =>
                 !thought
-                    ? res.status(404).json({ message: "No User found with this ID!" })
+                    ? res.status(404).json({ message: "Sorry, no user with that ID found!" })
                     : res.json(thought)
             )
             .catch((err) => {
@@ -49,7 +49,7 @@ const thoughtController = {
         Thought.findOneAndDelete({ _id: req.params.thoughtId })
             .then((thought) =>
                 !thought
-                    ? res.status(404).json({ message: "No thought find with this ID!" })
+                    ? res.status(404).json({ message: "Sorry, no user with that ID found!" })
                     : User.findOneAndUpdate(
                         { thoughts: req.params.thoughtId },
                         { $pull: { thoughts: req.params.thoughtId } },
@@ -58,8 +58,8 @@ const thoughtController = {
             )
             .then((user) =>
                 !user
-                    ? res.status(404).json({ message: 'Thought deleted, but no user found' })
-                    : res.json({ message: 'Thought successfully deleted' })
+                    ? res.status(404).json({ message: 'Sorry, no user with that ID found!' })
+                    : res.json({ message: 'This thought was successfully deleted.' })
             )
             .catch((err) => {
                 console.log(err);
@@ -75,7 +75,7 @@ const thoughtController = {
         )
             .then((user) =>
                 !user
-                    ? res.status(404).json({ message: "No thought find with this ID!" })
+                    ? res.status(404).json({ message: "Sorry, no thought with that ID found!" })
                     : res.json(user)
             )
             .catch((err) => {
@@ -93,7 +93,7 @@ const thoughtController = {
         )
             .then((thought) =>
                 !thought
-                    ? res.status(404).json({ message: "No thought frind with ID!" })
+                    ? res.status(404).json({ message: "Sorry, no thought with that ID found!" })
                     : res.json(thought)
             )
             .catch((err) => {
@@ -110,7 +110,7 @@ const thoughtController = {
         )
             .then((thought) =>
                 !thought
-                    ? res.status(404).json({ message: "No thought find with this ID!" })
+                    ? res.status(404).json({ message: "Sorry, no thought with that ID found!" })
                     : res.json(thought)
             )
             .catch((err) => {

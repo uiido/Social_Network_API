@@ -14,17 +14,16 @@ const userController = {
     },
 
     getSingleUser(req, res) {
-        User.findOne({ _id: req.params.userID })
-            .select('__v')
+        User.findOne({ _id: req.params.userId })
+            .populate("thoughts")
+            .populate("friends")
+            .select("-__v")
             .then((user) =>
                 !user
-                    ? res.status(404).json({ message: 'No user with that ID' })
+                    ? res.status(404).json({ message: "Sorry, no user with that ID found!" })
                     : res.json(user)
             )
-            .catch((err) => {
-                console.log(err);
-                res.status(500).json(err);
-            });
+            .catch((err) => res.status(500).json(err));
     },
 
     createUser(req, res) {
@@ -42,7 +41,7 @@ const userController = {
         User.findOneAndDelete({ _id: req.params.userId })
             .then((user) =>
                 !user
-                    ? res.status(404).json({ message: 'No user with that ID' })
+                    ? res.status(404).json({ message: 'Sorry, no user with that ID found!' })
                     : res.json(user)
             )
             .catch((err) => {
@@ -57,7 +56,7 @@ const userController = {
             { runValidators: true, new: true, })
             .then((user) =>
                 !user
-                    ? res.status(404).json({ message: 'No user with that ID' })
+                    ? res.status(404).json({ message: 'Sorry, no user with that ID found!' })
                     : res.json(user)
             )
             .catch((err) => {
@@ -73,7 +72,7 @@ const userController = {
             { runValidators: true, new: true, })
             .then((user) =>
                 !user
-                    ? res.status(404).json({ message: 'No user with that ID' })
+                    ? res.status(404).json({ message: 'Sorry, no user with that ID found!' })
                     : res.json(user)
             )
             .catch((err) => {
@@ -88,7 +87,7 @@ const userController = {
             { new: true })
             .then((user) =>
                 !user
-                    ? res.status(404).json({ message: 'No user with that ID' })
+                    ? res.status(404).json({ message: 'Sorry, no user with that ID found!' })
                     : res.json(user)
             )
             .catch((err) => {
