@@ -2,7 +2,7 @@ const { User, Thought } = require("../models");
 
 module.exports = {
     getUsers(req, res) {
-        User.find()
+        User.find({})
             .then((dbUserData) => {
                 res.json(dbUserData);
             })
